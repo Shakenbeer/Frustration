@@ -12,7 +12,14 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-        <item name="fontFamily">@font/signika</item>
-        <item name="textAppearanceButton">@style/Frustration.TextAppearance.Button</item>
     </style>
+
+    <style name="Theme.Frustration.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Frustration.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Frustration.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
