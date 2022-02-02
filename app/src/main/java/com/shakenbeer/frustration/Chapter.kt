@@ -1,5 +1,5 @@
 package com.shakenbeer.frustration
 
 enum class Chapter {
-    INTRO;
+    INTRO, SUSPEND_FUNC;
 }

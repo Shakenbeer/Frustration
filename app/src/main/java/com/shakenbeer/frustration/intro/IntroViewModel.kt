@@ -1,19 +1,18 @@
 package com.shakenbeer.frustration.intro
 
 import androidx.lifecycle.ViewModel
-import com.shakenbeer.frustration.log.ComposeLogger
-import com.shakenbeer.frustration.log.log
+import com.shakenbeer.frustration.shared.ComposeLogger
+import com.shakenbeer.frustration.shared.log
 import kotlinx.coroutines.*
 
 class IntroViewModel : ViewModel() {
 
     private val logger = ComposeLogger()
+    val lines = logger.lines
     private val scope = CoroutineScope(Job())
 
     private val currentThreadName: String
         get() = Thread.currentThread().name
-
-    val lines = logger.lines
 
     fun startCoroutineInTheMainThread() {
         with (logger) {
