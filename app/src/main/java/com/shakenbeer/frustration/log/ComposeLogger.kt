@@ -5,6 +5,8 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateListOf
+import java.time.LocalTime
+import java.time.format.DateTimeFormatter
 
 class ComposeLogger {
     var lines = mutableStateListOf<String>()
@@ -12,6 +14,10 @@ class ComposeLogger {
 
     fun start() = lines.clear()
     fun add(line: String) = lines.add(line)
+}
+
+fun ComposeLogger.log(msg: String) {
+    add("${DateTimeFormatter.ISO_LOCAL_TIME.format(LocalTime.now())} $msg")
 }
 
 @Composable
