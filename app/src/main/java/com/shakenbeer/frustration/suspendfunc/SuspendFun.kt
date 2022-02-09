@@ -2,7 +2,7 @@ package com.shakenbeer.frustration.suspendfunc
 
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.shakenbeer.frustration.Start
+import com.shakenbeer.frustration.shared.Start
 
 @Composable
 fun SuspendFunc(viewModel: SuspendFuncViewModel = viewModel()) {

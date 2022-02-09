@@ -1,4 +1,4 @@
-package com.shakenbeer.frustration
+package com.shakenbeer.frustration.shared
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer

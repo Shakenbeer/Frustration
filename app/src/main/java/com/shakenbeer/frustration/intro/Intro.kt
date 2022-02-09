@@ -2,7 +2,7 @@ package com.shakenbeer.frustration.intro
 
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.shakenbeer.frustration.Start
+import com.shakenbeer.frustration.shared.Start
 
 @Composable
 fun Intro(introViewModel: IntroViewModel = viewModel()) {
