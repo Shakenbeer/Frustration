@@ -1,7 +1,6 @@
 package com.shakenbeer.frustration.suspendfunc
 
 import com.shakenbeer.frustration.shared.ComposeLogger
-import com.shakenbeer.frustration.shared.log
 import java.io.File
 import java.util.concurrent.Executors
 

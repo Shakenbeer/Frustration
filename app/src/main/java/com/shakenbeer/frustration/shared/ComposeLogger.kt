@@ -9,9 +9,10 @@ class ComposeLogger {
         private set
 
     fun start() = lines.clear()
-    fun add(line: String) = lines.add(line)
+
+    fun log(msg: String) {
+        lines.add("${DateTimeFormatter.ISO_LOCAL_TIME.format(LocalTime.now())} $msg")
+    }
 }
 
-fun ComposeLogger.log(msg: String) {
-    add("${DateTimeFormatter.ISO_LOCAL_TIME.format(LocalTime.now())} $msg")
-}
+
