@@ -5,5 +5,5 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 
 class FrustrationModel : ViewModel() {
-    val chapter by mutableStateOf(Chapter.SUSPEND_FUNC)
+    val chapter by mutableStateOf(Chapter.SCOPE)
 }
