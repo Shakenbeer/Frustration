@@ -1,9 +1,8 @@
 package com.shakenbeer.frustration.suspendfunc
 
 import androidx.compose.runtime.Composable
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.shakenbeer.frustration.shared.ComposeLogger
-import com.shakenbeer.frustration.shared.Start
+import com.shakenbeer.frustration.shared.Chapter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -22,10 +21,10 @@ private val currentThreadName: String
 private val networkService: NetworkService = NetworkServiceImpl(logger)
 
 @Composable
-fun SuspendFunc() {
-    Start(
+fun SuspendFunc(onBackClick: () -> Unit) {
+    Chapter(
         "1. Our own suspend function \"download\".",
-        logger.lines, ::startLoadingFile
+        logger.lines, onBackClick, ::startLoadingFile
     )
 }
 

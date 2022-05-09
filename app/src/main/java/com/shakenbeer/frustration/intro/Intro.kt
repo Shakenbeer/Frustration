@@ -2,7 +2,7 @@ package com.shakenbeer.frustration.intro
 
 import androidx.compose.runtime.Composable
 import com.shakenbeer.frustration.shared.ComposeLogger
-import com.shakenbeer.frustration.shared.Start
+import com.shakenbeer.frustration.shared.Chapter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -14,10 +14,10 @@ private val currentThreadName: String
     get() = Thread.currentThread().name
 
 @Composable
-fun Intro() {
-    Start(
+fun Intro(onBackClick: () -> Unit) {
+    Chapter(
         "1. Coroutine could be started in the main thread.",
-        logger.lines, ::startCoroutineInTheMainThread
+        logger.lines, onBackClick, ::startCoroutineInTheMainThread
     )
 }
 
