@@ -4,5 +4,6 @@ enum class Chapter(val display: String) {
     CONTENT("Content"),
     INTRO("1. Intro"),
     SUSPEND_FUNC("2. Suspend function"),
-    SCOPE("3. Job and Scope");
+    SCOPE("3. Job and Scope"),
+    CANCEL("4. Run and cancel a coroutine"),
 }

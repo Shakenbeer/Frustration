@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.shakenbeer.frustration.cancel.Cancel
 import com.shakenbeer.frustration.intro.Intro
 import com.shakenbeer.frustration.scope.Scope
 import com.shakenbeer.frustration.suspendfunc.SuspendFunc
@@ -27,6 +28,7 @@ fun Frustration(frustrationModel: FrustrationModel = viewModel()) {
             Chapter.INTRO -> Intro(frustrationModel::onBack)
             Chapter.SUSPEND_FUNC -> SuspendFunc(frustrationModel::onBack)
             Chapter.SCOPE -> Scope(frustrationModel::onBack)
+            Chapter.CANCEL -> Cancel(frustrationModel::onBack)
         }
     }
 }

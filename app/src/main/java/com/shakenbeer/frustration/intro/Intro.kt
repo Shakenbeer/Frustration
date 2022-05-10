@@ -10,8 +10,6 @@ import kotlinx.coroutines.launch
 
 private val logger = ComposeLogger()
 private val scope = CoroutineScope(Job())
-private val currentThreadName: String
-    get() = Thread.currentThread().name
 
 @Composable
 fun Intro(onBackClick: () -> Unit) {
@@ -24,12 +22,12 @@ fun Intro(onBackClick: () -> Unit) {
 fun startCoroutineInTheMainThread() {
     with (logger) {
         start()
-        log("start coroutine in $currentThreadName")
+        log("start coroutine")
         scope.launch {
-            log("inside coroutine start suspend function \"delay(1 second)\" in $currentThreadName")
+            log("inside coroutine start suspend function \"delay(1 second)\"")
             delay(1000L)
-            log("inside coroutine after \"delay\" executed in $currentThreadName")
+            log("inside coroutine after \"delay\" executed")
         }
-        log("execute code directly after coroutine started in $currentThreadName -> thread is not blocked")
+        log("execute code directly after coroutine started -> thread is not blocked")
     }
 }

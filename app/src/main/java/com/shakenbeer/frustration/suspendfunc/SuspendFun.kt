@@ -15,8 +15,6 @@ import kotlin.coroutines.suspendCoroutine
 
 private val logger = ComposeLogger()
 private val scope = CoroutineScope(Dispatchers.Main + Job())
-private val currentThreadName: String
-    get() = Thread.currentThread().name
 
 private val networkService: NetworkService = NetworkServiceImpl(logger)
 
@@ -31,13 +29,13 @@ fun SuspendFunc(onBackClick: () -> Unit) {
 fun startLoadingFile() {
     with(logger) {
         start()
-        log("start coroutine in $currentThreadName")
+        log("start coroutine")
         scope.launch {
-            log("inside coroutine call suspend function \"download\" in $currentThreadName")
+            log("inside coroutine call suspend function \"download\"")
             download("")
-            log("inside coroutine after \"download\" executed in $currentThreadName")
+            log("inside coroutine after \"download\" executed")
         }
-        log("execute code directly after coroutine started in $currentThreadName -> thread is not blocked")
+        log("execute code directly after coroutine started -> thread is not blocked")
     }
 }
 
