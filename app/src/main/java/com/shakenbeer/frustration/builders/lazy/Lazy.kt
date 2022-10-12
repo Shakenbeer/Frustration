@@ -1,4 +1,4 @@
-package com.shakenbeer.frustration.cancel
+package com.shakenbeer.frustration.builders.lazy
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit
 private lateinit var scope: CoroutineScope
 
 @Composable
-fun Cancel(onBackClick: () -> Unit) {
+fun Lazy(onBackClick: () -> Unit) {
     scope = CoroutineScope(Job())
     Column(
         modifier = Modifier.padding(24.dp)
@@ -29,17 +29,17 @@ fun Cancel(onBackClick: () -> Unit) {
         }
         Spacer(modifier = Modifier.height(24.dp))
         Text(
-            text = "4. Run and cancel a coroutine, play around.",
+            text = "6. Create and run coroutine separately.",
             style = MaterialTheme.typography.body1
         )
         Spacer(modifier = Modifier.height(24.dp))
         Row {
-            OutlinedButton(onClick = ::onRun) {
-                Text(text = "Run")
+            OutlinedButton(onClick = ::onCreate) {
+                Text(text = "Create")
             }
             Spacer(modifier = Modifier.width(56.dp))
-            OutlinedButton(onClick = ::onCancel) {
-                Text(text = "Cancel")
+            OutlinedButton(onClick = ::onLaunch) {
+                Text(text = "Run")
             }
         }
         Spacer(modifier = Modifier.height(24.dp))
@@ -47,38 +47,28 @@ fun Cancel(onBackClick: () -> Unit) {
     }
 }
 
-lateinit var job: Job
+private lateinit var job: Job
 
 @Suppress("BlockingMethodInNonBlockingContext")
-private fun onRun() {
+private fun onCreate() {
     logMe {
-        clear()
-        log("onRun, start")
+        log("onCreate, start")
 
-        job = scope.launch {
+        job = scope.launch(start = CoroutineStart.LAZY) {
             log("coroutine, start")
-            var x = 0
-            while (x < 5 && isActive) {
-                TimeUnit.MILLISECONDS.sleep(1000)
-                log("coroutine, ${x++}")
-            }
+            TimeUnit.MILLISECONDS.sleep(1000)
             log("coroutine, end")
         }
 
         log("onRun, end")
     }
-
 }
 
-private fun onCancel() {
+private fun onLaunch() {
     logMe {
-        if (::job.isInitialized) {
-            log("onCancel -> only changes a status of coroutine")
-            job.cancel()
-        } else {
-            log("onCancel -> coroutine didn't start")
-        }
+        log("onLaunch, start")
+        job.start()
+        log("onLaunch, end")
     }
 }
-
 

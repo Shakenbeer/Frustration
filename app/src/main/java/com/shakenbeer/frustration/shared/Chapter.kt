@@ -1,7 +1,6 @@
 package com.shakenbeer.frustration.shared
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.OutlinedButton
 import androidx.compose.material.Text
@@ -13,7 +12,7 @@ import androidx.compose.ui.unit.dp
 import com.shakenbeer.frustration.ui.theme.FrustrationTheme
 
 @Composable
-fun Chapter(title: String, lines: List<String>, onBackClick: () -> Unit, onStartClick: () -> Unit) {
+fun Chapter(title: String, onBackClick: () -> Unit, onStartClick: () -> Unit) {
     Column(
         modifier = Modifier.padding(24.dp)
     ) {
@@ -30,33 +29,14 @@ fun Chapter(title: String, lines: List<String>, onBackClick: () -> Unit, onStart
             Text(text = "Start")
         }
         Spacer(modifier = Modifier.height(24.dp))
-        Log(lines = lines)
+        Log()
     }
-}
-
-@Composable
-fun Log(lines: List<String>) {
-    LazyColumn {
-        lines.forEach { line ->
-            item {
-                Log(line = line)
-            }
-        }
-    }
-}
-
-@Composable
-fun Log(line: String) {
-    Text(
-        text = line,
-        style = MaterialTheme.typography.body2
-    )
 }
 
 @Preview
 @Composable
 fun StartPreview() {
     FrustrationTheme {
-        Chapter("Chapter Title", listOf("Log Line 1", "Log Line 2", "Log Line 3"), { }) { }
+        Chapter("Chapter Title", { }) { }
     }
 }

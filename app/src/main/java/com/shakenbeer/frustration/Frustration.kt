@@ -11,9 +11,10 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.shakenbeer.frustration.builders.join.Join
+import com.shakenbeer.frustration.builders.lazy.Lazy
 import com.shakenbeer.frustration.cancel.Cancel
 import com.shakenbeer.frustration.intro.Intro
 import com.shakenbeer.frustration.scope.Scope
@@ -29,6 +30,8 @@ fun Frustration(frustrationModel: FrustrationModel = viewModel()) {
             Chapter.SUSPEND_FUNC -> SuspendFunc(frustrationModel::onBack)
             Chapter.SCOPE -> Scope(frustrationModel::onBack)
             Chapter.CANCEL -> Cancel(frustrationModel::onBack)
+            Chapter.JOIN -> Join(frustrationModel::onBack)
+            Chapter.LAZY -> Lazy(frustrationModel::onBack)
         }
     }
 }
